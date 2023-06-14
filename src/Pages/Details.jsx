@@ -1,18 +1,9 @@
-import {Link, useLocation} from "react-router-dom"
+import Character from "../Components/Details"
 
-const Character =()=>{
-    const {state} = useLocation()
+function Details(){
     return(
-        <div>
-            <h1>{state.name}</h1>
-            <img src={state.image}></img>
-            <h3>{state.gender}</h3>
-            <p>{state.status}</p>
-            <p>{state.species}</p>
-            <p>{state.type}</p>
-            <Link to='/'>GO back</Link>
-        </div>
+        <Character />
     )
 }
 
-export default Character
+export default Details
