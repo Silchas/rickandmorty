@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 // import {Link} from "react-router-dom"
 
 const Rick =() =>{
@@ -31,10 +32,10 @@ const Rick =() =>{
 
         {character.map((character)=>{
             return(
-            <div key={character.id}>
+            <Link to={`/${character.id}`} state={character} key={character.id}>
                 <img src={character.image} alt=""/>
                 <h2>{character.name}</h2>
-            </div> 
+            </Link> 
             )
         })}
     </div>
