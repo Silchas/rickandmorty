@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-// import {Link} from "react-router-dom"
+import {Link} from "react-router-dom"
 
 const Rick =() =>{
     const [character, setCharacter]= useState([])
@@ -24,20 +24,22 @@ const Rick =() =>{
     },[count])
 
     return(
-    <div>
-        <h1>Rick and Morty</h1>
-        <button onClick={decrease}>Previous</button>
-        <button onClick={increase}>Next</button>
-
-        {character.map((character)=>{
-            return(
-            <div key={character.id}>
-                <img src={character.image} alt=""/>
-                <h2>{character.name}</h2>
-            </div> 
-            )
-        })}
-    </div>
+        <div>
+            <div className="flex bottom-0 left-0">
+        <button className="bg-transparent hover:bg-gray-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mx-6" onClick={decrease}>Previous</button>
+        <button className="bg-transparent hover:bg-gray-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mx-2" onClick={increase}>Next</button>
+        </div>
+            <div className="flex flex-row flex-wrap justify-end my-2 space-x-4">
+                {character.map((character)=>{
+                    return(
+                    <Link to={`/{character.id}`} state={character} key={character.id}>
+                        <img src={character.image} alt=""/>
+                        <h2>{character.name}</h2>
+                    </Link>
+                    )
+                })}
+            </div>
+        </div>
     )
 }
 
